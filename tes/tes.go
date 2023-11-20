@@ -94,6 +94,56 @@ func main() {
 
 	// แสดงค่าของตัวแปร Website
 	fmt.Println("เว็บไซต์:", Website)
+
+	x = 10
+  	y = 5
+  	fmt.Println(x > y)
+
+	if 20 > 18 {
+	fmt.Println("20 is greater than 18")
+
+	time := 20
+  	if (time < 18) {
+    fmt.Println("Good day.")
+  	} else {
+    fmt.Println("Good evening.")
+  	}
+
+	  num := 20
+	  if num >= 10 {
+		fmt.Println("Num is more than 10.")
+		if num > 15 {
+		  fmt.Println("Num is also more than 15.")
+		 }
+	  } else {
+		fmt.Println("Num is less than 10.")
+	  }
+	}
+
+	day := 4
+
+	switch day {
+	case 1:
+		fmt.Println("Monday")
+	case 2:
+		fmt.Println("Tuesday")
+	case 3:
+		fmt.Println("Wednesday")
+	case 4:
+		fmt.Println("Thursday")
+	case 5:
+		fmt.Println("Friday")
+	case 6:
+		fmt.Println("Saturday")
+	case 7:
+		fmt.Println("Sunday")
+	}
+
+	for i:=0; i < 5; i++ {
+		fmt.Println(i)
+	}
+
+	
 }
 
 // Init เป็นฟังก์ชันที่แสดงค่าของ x
