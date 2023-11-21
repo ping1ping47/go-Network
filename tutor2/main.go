@@ -19,7 +19,7 @@ func main() {
 		vars := mux.Vars(r)
 		num1, _ := strconv.Atoi(vars["num1"])
 		num2, _ := strconv.Atoi(vars["num2"])
-		fmt.Fprintf(w, "<h1>Calculator: %d Plus = %d</h1>", num1, num2)
+		fmt.Fprintf(w, "<h1>Calculator: %d Plus %d</h1>", num1, num2)
 		fmt.Fprintf(w, "<h1>Total = %d</h1>", num1+num2)
 	})
 
