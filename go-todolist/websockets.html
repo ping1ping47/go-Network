@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>การใช้งาน Web Socket ด้วยภาษา Go</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap">
+  <style>
+    body {
+      background-color: #f5f5f5;
+      color: #333;
+      font-family: 'Kanit', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    #container {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin: 2rem auto;
+      max-width: 600px;
+      padding: 2rem;
+    }
+
+    h1 {
+      color: #007BFF;
+    }
+
+    p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    #input {
+      font-size: 16px;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      width: calc(100% - 22px);
+    }
+
+    button {
+      font-size: 16px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      margin-top: 0.5rem;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      font-size: 16px;
+      text-align: left;
+    }
+
+    /* เพิ่มข้อมูล */
+    p.add-command {
+      color: #008000;
+      /* สีเขียนเขียว */
+    }
+
+    /* ลบข้อมูล */
+    p.done-command {
+      color: #FF0000;
+      /* สีแดง */
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <h1>การใช้งาน Web Socket ด้วยภาษา Go</h1>
+    <h2>คำสั่งที่ใช้ได้สำหรับแอพ Todo</h2>
+    <p class="add-command">- add [ข้อความ]</p>
+    <p class="done-command">- done [ข้อความ]</p>
+    <input id="input" type="text" size="40" />
+    <button onclick="send()">ส่ง</button>
+    <pre id="output"></pre>
+  </div>
+  <script>
+    var input = document.getElementById("input");
+    var output = document.getElementById("output");
+    var socket = new WebSocket("ws://localhost:8080/todo");
+
+    socket.onopen = function () {
+      output.innerHTML += '<span style="color: #008000;">สถานะ: เชื่อมต่อแล้ว</span>\n';
+    };
+
+    socket.onmessage = function (e) {
+      output.innerHTML += '<span style="color: #FF0000;">\nเซิร์ฟเวอร์:</span> ' + e.data + '\n';
+    };
+
+    function send() {
+      socket.send(input.value);
+      input.value = "";
+    }
+  </script>
+</body>
+
+</html>
