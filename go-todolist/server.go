@@ -77,9 +77,9 @@ func main() {
 			cmd := getCmd(input)		// แยกคำสั่งออกมา แล้วเก็บในตัวแปร cmd
 			msg := getMessage(input)	// แยกข้อความออกมา แล้วเก็บในตัวแปร msg
 
-			if cmd == "add" {			// ถ้า cmd เป็น add ให้เพิ่มข้อมูลเข้าไปใน todoList
+			if cmd == "เพิ่ม" {			// ถ้า cmd เป็น add ให้เพิ่มข้อมูลเข้าไปใน todoList
 				todoList = append(todoList, msg) // append คือ การเพิ่มข้อมูลเข้าไปใน array
-			} else if cmd == "done" {   // ถ้า cmd เป็น done ให้ลบข้อมูลออกจาก todoList
+			} else if cmd == "ลบ" {   // ถ้า cmd เป็น done ให้ลบข้อมูลออกจาก todoList
 				updateTodoList(msg)		// เรียกใช้ฟังก์ชัน updateTodoList
 			}
 
